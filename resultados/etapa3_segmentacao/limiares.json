@@ -1,0 +1,37 @@
+{
+  "filtro": "gaussiano",
+  "limiares": {
+    "base": {
+      "t_baixo": 45.398,
+      "t_alto": 68.766
+    },
+    "A0": {
+      "t_baixo": 3.356,
+      "t_alto": 13.485
+    },
+    "A": {
+      "t_baixo": 2.831,
+      "t_alto": 6.436
+    },
+    "A+S": {
+      "t_baixo": 3.386,
+      "t_alto": 9.203
+    },
+    "A+C": {
+      "t_baixo": 3.499,
+      "t_alto": 46.433
+    },
+    "B": {
+      "t_baixo": 1.435,
+      "t_alto": 6.126
+    },
+    "B+S": {
+      "t_baixo": 2.234,
+      "t_alto": 8.777
+    },
+    "B+C": {
+      "t_baixo": 2.376,
+      "t_alto": 46.397
+    }
+  }
+}

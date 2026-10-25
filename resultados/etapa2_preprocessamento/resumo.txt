@@ -1,0 +1,46 @@
+=== P1. Alinhamento por template matching ===
+deslocamentos estimados: dx -9..21 px, dy -5..4 px (média |d| = 2.7 px)
+nenhum             |f - média| nas normais de calibração: média 5.42  p99 36.5 níveis
+template matching  |f - média| nas normais de calibração: média 5.05  p99 32.7 níveis
+
+=== P2/P3. Suavização x representação (ruído nas normais e preservação de bordas) ===
+nenhum     ruído (cinza) média  5.05 p99  32.7 | preservação das bordas 100.0%
+gaussiano  ruído (cinza) média  4.96 p99  31.7 | preservação das bordas 93.7%
+mediana    ruído (cinza) média  4.96 p99  32.2 | preservação das bordas 99.6%
+bilateral  ruído (cinza) média  4.91 p99  32.1 | preservação das bordas 104.8%
+
+REGRA: menor ruído p99 entre os filtros com preservação >= 90% -> filtro escolhido: GAUSSIANO
+
+Descritivo (defeitos da avaliação): fração do GT acima do limiar calibrado | defeitos com >= 30 px acima
+filtro    repr.                 crack       faulty_im            poke         scratch         squeeze         média
+nenhum    cinza           0.20 | 0.74     0.00 | 0.00     0.09 | 0.33     0.00 | 0.00     0.27 | 1.00   0.11 | 0.41
+nenhum    R               0.21 | 0.61     0.00 | 0.00     0.07 | 0.33     0.00 | 0.00     0.16 | 0.75   0.09 | 0.34
+nenhum    G               0.17 | 0.74     0.00 | 0.00     0.09 | 0.38     0.00 | 0.04     0.27 | 1.00   0.11 | 0.43
+nenhum    B               0.13 | 0.65     0.00 | 0.00     0.07 | 0.43     0.00 | 0.00     0.26 | 1.00   0.09 | 0.42
+nenhum    rgb (máx.)      0.21 | 0.74     0.00 | 0.00     0.08 | 0.43     0.00 | 0.00     0.28 | 1.00   0.11 | 0.43
+gaussiano cinza           0.20 | 0.70     0.00 | 0.00     0.09 | 0.33     0.00 | 0.00     0.28 | 1.00   0.11 | 0.41
+gaussiano R               0.21 | 0.56     0.00 | 0.00     0.08 | 0.33     0.00 | 0.00     0.17 | 0.75   0.09 | 0.33
+gaussiano G               0.18 | 0.74     0.00 | 0.00     0.09 | 0.38     0.00 | 0.00     0.28 | 1.00   0.11 | 0.42
+gaussiano B               0.14 | 0.61     0.00 | 0.00     0.07 | 0.43     0.00 | 0.00     0.27 | 1.00   0.10 | 0.41
+gaussiano rgb (máx.)      0.21 | 0.74     0.00 | 0.00     0.08 | 0.43     0.00 | 0.00     0.28 | 1.00   0.12 | 0.43
+mediana   cinza           0.20 | 0.74     0.00 | 0.00     0.09 | 0.33     0.00 | 0.00     0.28 | 1.00   0.11 | 0.41
+mediana   R               0.21 | 0.56     0.00 | 0.00     0.07 | 0.33     0.00 | 0.00     0.16 | 0.75   0.09 | 0.33
+mediana   G               0.17 | 0.74     0.00 | 0.00     0.09 | 0.38     0.00 | 0.00     0.28 | 1.00   0.11 | 0.42
+mediana   B               0.13 | 0.61     0.00 | 0.00     0.07 | 0.38     0.00 | 0.00     0.27 | 1.00   0.09 | 0.40
+mediana   rgb (máx.)      0.21 | 0.74     0.00 | 0.00     0.08 | 0.38     0.00 | 0.00     0.28 | 1.00   0.11 | 0.42
+bilateral cinza           0.20 | 0.74     0.00 | 0.00     0.09 | 0.33     0.00 | 0.00     0.28 | 1.00   0.11 | 0.41
+bilateral R               0.21 | 0.56     0.00 | 0.00     0.07 | 0.33     0.00 | 0.00     0.16 | 0.75   0.09 | 0.33
+bilateral G               0.17 | 0.74     0.00 | 0.00     0.09 | 0.38     0.00 | 0.00     0.28 | 1.00   0.11 | 0.42
+bilateral B               0.14 | 0.61     0.00 | 0.00     0.08 | 0.43     0.00 | 0.00     0.27 | 1.00   0.10 | 0.41
+bilateral rgb (máx.)      0.21 | 0.74     0.00 | 0.00     0.08 | 0.43     0.00 | 0.00     0.29 | 1.00   0.12 | 0.43
+
+=== P4. Bordas ===
+Canny 15/40    pixels de borda por cápsula NORMAL (interior): média 2378  -> todos seriam falso positivo se borda = defeito
+Sobel |G|>60   pixels de borda por cápsula NORMAL (interior): média 3048  -> todos seriam falso positivo se borda = defeito
+canal sobel  (diferença c/ referência): fração do GT acima do limiar média 0.07 | defeitos detectados 0.59  crack=0.83 faulty=0.00 poke=0.57 scratc=0.57 squeez=1.00
+canal canny  (diferença c/ referência): fração do GT acima do limiar média 0.12 | defeitos detectados 0.65  crack=0.91 faulty=0.00 poke=0.62 scratc=0.70 squeez=1.00
+
+=== P5. ROI (cobertura do GT, descritivo) ===
+cápsula média, erosão 9 px (código antigo)           área  213004 px | GT coberto: média 0.956 mín 0.422 | crack=0.91 faulty=1.00 poke=1.00 scratc=0.99 squeez=0.87
+cápsula média                                        área  221130 px | GT coberto: média 0.972 mín 0.597 | crack=0.95 faulty=1.00 poke=1.00 scratc=1.00 squeez=0.90
+união das normais de referência + 10 px (escolhida)  área  256572 px | GT coberto: média 0.995 mín 0.859 | crack=0.99 faulty=1.00 poke=1.00 scratc=1.00 squeez=0.98

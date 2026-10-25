@@ -1,0 +1,9 @@
+config,descricao,t_baixo,t_alto,fp_normais_frac,fp_normais_px,deteccao,dice,iou,precisao,recall,dice_global,precisao_global,dice_crack,detec_crack,dice_faulty_imprint,detec_faulty_imprint,dice_poke,detec_poke,dice_scratch,detec_scratch,dice_squeeze,detec_squeeze
+base,"B: golden template, K vizinhos | tol=0 suav=5",45.4,68.77,0.173,356.3,0.394,0.135,0.093,0.261,0.116,0.247,0.561,0.283,0.696,0.001,0.045,0.127,0.333,0.0,0.043,0.278,0.9
+A0,A: modelo estatístico global | tol=0 suav=5,3.36,13.49,0.135,845.6,0.394,0.205,0.155,0.253,0.214,0.345,0.461,0.402,0.696,0.0,0.0,0.251,0.333,0.0,0.0,0.391,1.0
+A,A: modelo estatístico global | tol=3 suav=15,2.83,6.44,0.173,989.9,0.477,0.24,0.181,0.302,0.249,0.355,0.463,0.449,0.826,0.0,0.0,0.352,0.476,0.014,0.13,0.407,1.0
+A+S,A: modelo estatístico global + sobel | tol=3 suav=15,3.39,9.2,0.231,998.6,0.468,0.252,0.192,0.317,0.257,0.35,0.489,0.439,0.739,0.0,0.0,0.346,0.429,0.081,0.217,0.409,1.0
+A+C,A: modelo estatístico global + canny | tol=3 suav=15,3.5,46.43,0.231,232.1,0.44,0.239,0.18,0.315,0.234,0.275,0.57,0.355,0.565,0.0,0.0,0.346,0.476,0.201,0.565,0.297,0.6
+B,"B: golden template, K vizinhos | tol=3 suav=15",1.43,6.13,0.173,1053.0,0.45,0.256,0.199,0.286,0.281,0.394,0.463,0.444,0.739,0.0,0.0,0.385,0.476,0.022,0.087,0.454,1.0
+B+S,"B: golden template, K vizinhos + sobel | tol=3 suav=15",2.23,8.78,0.231,967.2,0.459,0.264,0.205,0.304,0.277,0.37,0.497,0.46,0.739,0.0,0.0,0.359,0.429,0.088,0.174,0.429,1.0
+B+C,"B: golden template, K vizinhos + canny | tol=3 suav=15",2.38,46.4,0.231,246.6,0.44,0.248,0.188,0.315,0.246,0.291,0.576,0.362,0.565,0.0,0.0,0.353,0.476,0.221,0.565,0.311,0.6

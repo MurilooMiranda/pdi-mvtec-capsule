@@ -1,0 +1,8 @@
+pasta,imagens,mascaras
+train/good,219,0
+test/crack,23,23
+test/faulty_imprint,22,22
+test/good,23,0
+test/poke,21,21
+test/scratch,23,23
+test/squeeze,20,20

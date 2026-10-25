@@ -1,0 +1,3 @@
+canal,limiar_z,frac_gt_crack,detec_crack,frac_gt_faulty_imprint,detec_faulty_imprint,frac_gt_poke,detec_poke,frac_gt_scratch,detec_scratch,frac_gt_squeeze,detec_squeeze,frac_gt_media,detec_media
+sobel,11.8,0.163,0.826,0.0,0.0,0.108,0.571,0.014,0.565,0.086,1.0,0.074,0.593
+canny,22.63,0.23,0.913,0.0,0.0,0.213,0.619,0.091,0.696,0.088,1.0,0.124,0.646

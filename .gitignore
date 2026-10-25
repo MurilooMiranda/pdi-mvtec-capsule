@@ -2,7 +2,7 @@
 .venv/
 
 # Dataset MVTec AD (CC BY-NC-SA 4.0) - baixar em https://www.mvtec.com/research-teaching/datasets/mvtec-ad
-capsule/
+dados/capsule/
 
 # Python
 __pycache__/

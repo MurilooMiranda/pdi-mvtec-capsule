@@ -1,0 +1,46 @@
+=== 1. Inventário ===
+train/good             219 imagens     0 máscaras
+test/crack             23 imagens    23 máscaras
+test/faulty_imprint    22 imagens    22 máscaras
+test/good              23 imagens     0 máscaras
+test/poke              21 imagens    21 máscaras
+test/scratch           23 imagens    23 máscaras
+test/squeeze           20 imagens    20 máscaras
+tamanhos (amostra): {(1000, 1000, 3)}  | total: 351 imagens
+
+=== 3. Geometria dos defeitos (máscaras GT) ===
+tipo              n  área mín  mediana     máx  % img  excentr.  compon.  na preta  dist borda
+crack            23       371     3043   23268  0.30%       2.4      1.0      39%        33px
+faulty_imprint   22      1417     2780   41291  0.28%       1.8      1.0       0%       120px
+poke             21       695     2253   12289  0.23%       1.5      1.0      29%        74px
+scratch          23      2965     6350   15261  0.64%       2.8      1.2       4%        74px
+squeeze          20      1881    27582   80787  2.76%       2.2      1.0      35%        34px
+menor defeito: crack/021.png com 371 px (eixo menor ~15 px) -> limite para o tamanho da abertura
+menor eixo menor entre todos os defeitos: 11.2 px
+
+=== 4. Contraste: |média dentro do defeito - média do anel ao redor| ===
+(comparar com o desvio padrão do anel: se |dif| < desvio, um limiar simples não separa)
+tipo                      cinza               B               G               R
+crack              12.8 (σ14.7)    11.3 (σ14.6)    10.3 (σ17.0)    15.3 (σ12.6)
+faulty_imprint      6.0 (σ15.7)     6.8 (σ19.2)     6.8 (σ17.0)     4.7 (σ12.8)
+poke               12.0 (σ15.2)    11.1 (σ18.1)    12.8 (σ17.3)     9.3 (σ 9.6)
+scratch             3.8 (σ14.0)     2.9 (σ11.4)     3.5 (σ12.2)     3.3 (σ14.1)
+squeeze            15.2 (σ27.2)    19.8 (σ21.8)    18.7 (σ25.6)    15.9 (σ41.4)
+
+=== 5. Intensidade por região (train/good/000) ===
+fundo           cinza média= 201.5  desvio= 19.1  R= 202.7 G= 201.0 B= 200.6
+metade preta    cinza média=  32.8  desvio= 24.8  R=  32.3 G=  32.7 B=  34.7
+metade laranja  cinza média=  92.9  desvio= 15.8  R= 133.0 G=  78.0 B=  64.6
+
+=== 6. Variação entre cápsulas normais ===
+242 cápsulas normais | deslocamento (template matching): dx -8..5 px, dy -4..3 px, |d| médio 2.4 px
+ângulo do eixo maior: -0.35° a 0.18° | área da cápsula: 214415 a 228797 px
+correlação com a média: mín 0.994, mediana 0.998
+desvio padrão entre normais dentro da cápsula: mediana 5.7, p90 13.8, p99 19.4 níveis
+
+=== 7. Partição própria ===
+referencia   150 imagens  good=150
+calibracao    40 imagens  good=40
+avaliacao    161 imagens  good=52  crack=23  faulty_imprint=22  poke=21  scratch=23  squeeze=20
+regra: referência e calibração só têm cápsulas normais e nunca são avaliadas;
+       nenhum limiar/parâmetro pode ser escolhido olhando o conjunto de avaliação.

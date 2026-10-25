@@ -1,0 +1,4 @@
+roi,area_px,cobertura_media,cobertura_min,cob_crack,cob_faulty_imprint,cob_poke,cob_scratch,cob_squeeze
+"cápsula média, erosão 9 px (código antigo)",213004,0.956,0.422,0.914,1.0,1.0,0.992,0.868
+cápsula média,221130,0.972,0.597,0.951,1.0,1.0,0.998,0.905
+união das normais de referência + 10 px (escolhida),256572,0.995,0.859,0.995,1.0,1.0,1.0,0.98

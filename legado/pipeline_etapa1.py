@@ -39,7 +39,7 @@ import numpy as np
 # Os números entre colchetes nos comentários vêm de avaliar_etapa1.py, rodado nas
 # 132 imagens de test/ (109 defeituosas + 23 boas).
 
-DATASET_DIR = Path(__file__).resolve().parent / "capsule"
+DATASET_DIR = Path(__file__).resolve().parent.parent / "dados" / "capsule"  # (ajustado na reorganização do repositório)
 
 # --- Filtro bilateral ---------------------------------------------------------
 # d = 9: vizinhança de 9x9 px. Cobre o grão do ruído do sensor e a textura fina
